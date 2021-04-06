@@ -8,12 +8,9 @@
 				<v-flex xs12 md6>
 					<v-btn block class="grey" @click="changeState()">{{ getLoading }}</v-btn>
 				</v-flex>
-				<v-flex xs12 md6>
-					<v-btn block class="grey">2</v-btn>
-				</v-flex>
 			</v-layout>
 		</v-container>
-		<v-text-field v-model="message" @change="textChanged" />
+		<v-text-field v-model="message" @change="textChanged">{{ getText }}</v-text-field>
 	</v-container>
 </template>
 <script>
@@ -21,7 +18,7 @@ import Toolbar from "@/components/Toolbar"
 import { mapActions, mapGetters } from "vuex"
 export default {
 	data: () => ({
-		message: null,
+		message: "",
 	}),
 
 	components: {

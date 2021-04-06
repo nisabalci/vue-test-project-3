@@ -31,7 +31,7 @@ export default {
 	data: () => ({
 		data: { text: "text", text1: "text1" },
 		drawer: true,
-		message: null,
+		message: "",
 		navTitle: "Vuetify App",
 		links: [
 			{ icon: "dashboard", text: "Dashboard", route: "/dashboard" },
