@@ -1,14 +1,6 @@
 <template>
 	<v-app>
-		<v-navigation-drawer permanent v-model="drawer" app>
-			<v-list-item class="blue" dark>
-				<v-list-item-content>
-					<v-list-item-title class="headline">
-						{{ navTitle }}
-					</v-list-item-title>
-				</v-list-item-content>
-			</v-list-item>
-			<v-divider></v-divider>
+		<v-navigation-drawer v-model="drawer" clipped app>
 			<v-list dense nav>
 				<v-list-item v-for="link in links" :key="link.text" router :to="link.route">
 					<v-list-item-icon>
@@ -20,7 +12,11 @@
 				</v-list-item>
 			</v-list>
 		</v-navigation-drawer>
-		<v-main>
+		<v-app-bar app clipped-left>
+			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+			<v-toolbar-title>{{ navTitle }}</v-toolbar-title>
+		</v-app-bar>
+		<v-main class="mx-4">
 			<router-view />
 		</v-main>
 	</v-app>
