@@ -6,7 +6,7 @@ import { SET_TEXT_STATE } from "./mutation-types"
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-	state: { loading: false, eventHub: new Vue(), message: null },
+	state: { loading: false, eventHub: new Vue(), message: "" },
 	getters: {
 		getLoading: (state) => {
 			return state.loading

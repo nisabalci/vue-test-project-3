@@ -5,7 +5,7 @@
 import { mapActions, mapGetters } from "vuex"
 export default {
 	data: () => ({
-		message: null,
+		message: "",
 	}),
 	computed: {
 		...mapGetters(["getLoading", "getEventHub", "getText"]),
