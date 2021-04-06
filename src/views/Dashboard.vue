@@ -1,13 +1,15 @@
 <template>
 	<v-container fluid style="max-width: 100%">
 		<v-card>
-			<navbar />
+			<toolbar />
 		</v-card>
 	</v-container>
 </template>
 <script>
-import Navbar from "../components/Navbar.vue"
+import Toolbar from "@/components/Toolbar"
 export default {
-	components: { navbar: Navbar },
+	components: {
+		toolbar: Toolbar,
+	},
 }
 </script>
