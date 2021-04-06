@@ -18,7 +18,7 @@
 			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 			<v-toolbar-title>{{ navTitle }}</v-toolbar-title>
 		</v-app-bar>
-		<v-text-field v-model="asd" @change="textChanged" />
+		<!-- <v-text-field v-model="text" @change="textChanged">{{ getText }}</v-text-field> -->
 		<v-main class="mx-4 mb-4">
 			<router-view />
 		</v-main>
@@ -31,7 +31,7 @@ export default {
 	data: () => ({
 		data: { text: "text", text1: "text1" },
 		drawer: true,
-		asd: null,
+		message: null,
 		navTitle: "Vuetify App",
 		links: [
 			{ icon: "dashboard", text: "Dashboard", route: "/dashboard" },
@@ -41,17 +41,14 @@ export default {
 	}),
 	mixins: [clickMixin],
 	computed: {
-		...mapGetters(["getLoading", "getEventHub"]),
+		...mapGetters(["getLoading", "getEventHub", "getText"]),
 	},
 	methods: {
-		...mapActions(["setLoading"]),
+		...mapActions(["setLoading", "setText"]),
 		changeState() {
 			this.setLoading(true)
 			this.data = { ...this.data, abc: "asd", xyx: "asd", text: "qwe" }
 			this.clicked("asd")
-		},
-		textChanged() {
-			this.setText(this.asd)
 		},
 	},
 }

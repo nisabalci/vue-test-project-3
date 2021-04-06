@@ -13,22 +13,30 @@
 				</v-flex>
 			</v-layout>
 		</v-container>
+		<v-text-field v-model="message" @change="textChanged" />
 	</v-container>
 </template>
 <script>
 import Toolbar from "@/components/Toolbar"
 import { mapActions, mapGetters } from "vuex"
 export default {
+	data: () => ({
+		message: null,
+	}),
+
 	components: {
 		toolbar: Toolbar,
 	},
 	computed: {
-		...mapGetters(["getLoading", "getEventHub"]),
+		...mapGetters(["getLoading", "getEventHub", "getText"]),
 	},
 	methods: {
-		...mapActions(["setLoading"]),
+		...mapActions(["setLoading", "setText"]),
 		changeState() {
 			this.setLoading(!this.getLoading)
+		},
+		textChanged() {
+			this.setText(!this.message)
 		},
 	},
 }
