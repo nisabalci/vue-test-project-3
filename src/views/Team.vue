@@ -1,22 +1,17 @@
 <template>
-	<v-container fluid> {{ message }}</v-container>
+	<v-container fluid> {{ getText }}</v-container>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex"
 export default {
-	data: () => ({
-		message: "",
-	}),
+	data: () => ({}),
 	computed: {
 		...mapGetters(["getLoading", "getEventHub", "getText"]),
 	},
 	methods: {
-		...mapActions(["setLoading", "setText"]),
+		...mapActions(["setLoading"]),
 		changeState() {
 			this.setLoading(!this.getLoading)
-		},
-		textChanged() {
-			this.setText(!this.getText)
 		},
 	},
 	beforeDestroy() {

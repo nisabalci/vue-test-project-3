@@ -18,7 +18,6 @@
 			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 			<v-toolbar-title>{{ navTitle }}</v-toolbar-title>
 		</v-app-bar>
-		<!-- <v-text-field v-model="text" @change="textChanged">{{ getText }}</v-text-field> -->
 		<v-main class="mx-4 mb-4">
 			<router-view />
 		</v-main>
@@ -41,10 +40,10 @@ export default {
 	}),
 	mixins: [clickMixin],
 	computed: {
-		...mapGetters(["getLoading", "getEventHub", "getText"]),
+		...mapGetters(["getLoading", "getEventHub"]),
 	},
 	methods: {
-		...mapActions(["setLoading", "setText"]),
+		...mapActions(["setLoading"]),
 		changeState() {
 			this.setLoading(true)
 			this.data = { ...this.data, abc: "asd", xyx: "asd", text: "qwe" }

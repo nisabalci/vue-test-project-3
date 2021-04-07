@@ -10,22 +10,20 @@
 				</v-flex>
 			</v-layout>
 		</v-container>
-		<v-text-field v-model="message" @change="textChanged">{{ getText }}</v-text-field>
+		<v-text-field v-model="message" @change="textChanged" />
 	</v-container>
 </template>
 <script>
 import Toolbar from "@/components/Toolbar"
 import { mapActions, mapGetters } from "vuex"
 export default {
-	data: () => ({
-		message: "",
-	}),
+	data: () => ({}),
 
 	components: {
 		toolbar: Toolbar,
 	},
 	computed: {
-		...mapGetters(["getLoading", "getEventHub", "getText"]),
+		...mapGetters(["getLoading", "getEventHub"]),
 	},
 	methods: {
 		...mapActions(["setLoading", "setText"]),
@@ -33,7 +31,7 @@ export default {
 			this.setLoading(!this.getLoading)
 		},
 		textChanged() {
-			this.setText(!this.message)
+			this.setText(this.message)
 		},
 	},
 }
