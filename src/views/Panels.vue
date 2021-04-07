@@ -1,22 +1,15 @@
 <template>
-	<v-container class="projects">
-		<v-card elevation="1">
-			<v-card-text subheading grey--text>Panels</v-card-text>
-		</v-card>
-		<v-container class="my-5">
-			<v-expansion-panel>
-				<v-expansion-panel-content v-for="project in projects" :key="project.title">
-					<div slot="header">{{ project.title }}</div>
-					<v-card>
-						<v-card-text class="px-4 grey--text">
-							<div class="font-weight-bold">due by {{ project.due }}</div>
-							<div>{{ project.content }}</div>
-						</v-card-text>
-					</v-card>
-				</v-expansion-panel-content>
-			</v-expansion-panel>
-		</v-container>
-	</v-container>
+	<v-expansion-panels>
+		<v-expansion-panel v-for="project in projects" :key="project.title">
+			<v-expansion-panel-header>
+				{{ project.title }}
+			</v-expansion-panel-header>
+			<v-expansion-panel-content class="font-weight-bold grey--text"> due by {{ project.due }} </v-expansion-panel-content>
+			<v-expansion-panel-content class="grey--text">
+				{{ project.content }}
+			</v-expansion-panel-content>
+		</v-expansion-panel>
+	</v-expansion-panels>
 </template>
 <script>
 export default {
