@@ -34,8 +34,10 @@ export default {
 		navTitle: "Vuetify App",
 		links: [
 			{ icon: "dashboard", text: "Dashboard", route: "/dashboard" },
-			{ icon: "folder", text: "Projects", route: "/projects" },
 			{ icon: "person", text: "Team", route: "/team" },
+			{ icon: "folder", text: "Projects", route: "/projects" },
+			{ icon: "dns", text: "Cards", route: "/cards" },
+			{ icon: "expand", text: "Panels", route: "/panels" },
 		],
 	}),
 	mixins: [clickMixin],
