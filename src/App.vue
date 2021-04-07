@@ -11,20 +11,26 @@
 					</v-list-item-content>
 				</v-list-item>
 			</v-list>
+			<!-- <div @click="getEventHub.$emit('callAlert', 'asd')">{{ getLoading }}</div> -->
+			<!-- <div @click="changeState()">{{ getLoading }}</div> -->
 		</v-navigation-drawer>
 		<v-app-bar app clipped-left>
 			<v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 			<v-toolbar-title>{{ navTitle }}</v-toolbar-title>
 		</v-app-bar>
-		<v-main class="mx-4">
+		<v-main class="mx-4 mb-4">
 			<router-view />
 		</v-main>
 	</v-app>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex"
+import clickMixin from "./mixins/clickMixin"
 export default {
 	data: () => ({
+		data: { text: "text", text1: "text1" },
 		drawer: true,
+		message: "",
 		navTitle: "Vuetify App",
 		links: [
 			{ icon: "dashboard", text: "Dashboard", route: "/dashboard" },
@@ -32,5 +38,17 @@ export default {
 			{ icon: "person", text: "Team", route: "/team" },
 		],
 	}),
+	mixins: [clickMixin],
+	computed: {
+		...mapGetters(["getLoading", "getEventHub"]),
+	},
+	methods: {
+		...mapActions(["setLoading"]),
+		changeState() {
+			this.setLoading(true)
+			this.data = { ...this.data, abc: "asd", xyx: "asd", text: "qwe" }
+			this.clicked("asd")
+		},
+	},
 }
 </script>
