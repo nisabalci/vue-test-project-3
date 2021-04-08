@@ -5,12 +5,18 @@
 		</v-card>
 		<v-container class="my-5">
 			<v-layout row wrap>
-				<v-flex xs12 md6>
+				<!-- <v-flex xs12 md6>
 					<v-btn block class="grey" @click="changeState()">{{ getLoading }}</v-btn>
-				</v-flex>
+				</v-flex> -->
 			</v-layout>
 		</v-container>
-		<v-text-field v-model="message" @change="textChanged" />
+		<v-container>
+			<v-row>
+				<v-col cols="12" sm="6">
+					<v-text-field v-model="message" label="Message" @change="textChanged"></v-text-field>
+				</v-col>
+			</v-row>
+		</v-container>
 	</v-container>
 </template>
 <script>
